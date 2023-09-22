@@ -10,3 +10,23 @@ source_file = open('202001-citibike-tripdata.csv','r')
 citibike_reader = csv.DictReader(source_file)
 
 print(citibike_reader.fieldnames)
+
+
+# now create our three variables to hold the count of each type
+subscriber_count = 0
+customer_count = 0
+other_user_count = 0
+
+for row in citibike_reader:
+	if row['usertype'] == 'Subscriber':
+		subscriber_count = subscriber_count + 1
+	elif row['usertype'] == 'Customer':
+		customer_count = customer_count + 1
+	else:
+		other_user_count = other_user_count +1
+print('Subscribers: ')
+print(subscriber_count)
+print('customers: ')
+print(customer_count)
+print('other')
+print(other_user_count)
